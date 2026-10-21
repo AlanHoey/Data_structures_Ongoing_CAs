@@ -26,5 +26,22 @@ public class ArrayBasedList {
         }
         return data[index];
     }
+
+    public int indexOf(String target){
+        for (int i = 0; i < size; i++) {
+            if(data[i].equals(target)){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
+    public void add(String value){
+        ensureCapacity();
+
+        data[size] = value;
+        size++;
+    }
 }
 
