@@ -91,5 +91,23 @@ public class ArrayBasedList {
         return count;
     }
 
+    public void clear(){
+        for (int i = 0; i < size; i++) {
+            data[i] = null;
+        }
+        size = 0;
+    }
+
+    public ArrayBasedList deduplicate() {
+        ArrayBasedList current = new ArrayBasedList();
+
+        for (int i = 0; i < size; i++) {
+            if (current.indexOf(data[i]) == -1) {
+                current.add(data[i]);
+            }
+        }
+        return current;
+    }
+
 }
 
