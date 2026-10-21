@@ -15,5 +15,16 @@ public class ArrayBasedList {
             data = temp;
         }
     }
+
+    public int size() {
+        return size;
+    }
+
+    public String get(int index) {
+        if (index < 0 || index >= size) {
+            throw new IndexOutOfBoundsException("Index " + index + " is outside bounds of array");
+        }
+        return data[index];
+    }
 }
 
