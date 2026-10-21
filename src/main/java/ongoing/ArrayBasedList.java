@@ -109,5 +109,12 @@ public class ArrayBasedList {
         return current;
     }
 
+    public void join(ArrayBasedList toBeJoined) {
+        int toBeJoinedSize = toBeJoined.size();
+        for (int i = 0; i < toBeJoinedSize; i++) {
+            add(toBeJoined.get(i));
+        }
+    }
+
 }
 
