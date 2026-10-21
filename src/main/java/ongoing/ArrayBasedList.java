@@ -45,6 +45,7 @@ public class ArrayBasedList {
     }
 
     public void add(int index, String value){
+        ensureCapacity();
 
         System.arraycopy(data,index,data,index+1,(size-index));
 
@@ -60,5 +61,35 @@ public class ArrayBasedList {
 
         return removed;
     }
+
+    public String remove(int index) {
+        String removed = data[index];
+
+        for (int i = index; i < size - 1; i++) {
+            data[i] = data[i + 1];
+        }
+        data[size - 1] = null;
+        size--;
+
+        return removed;
+    }
+
+    public int removeAll(String value){
+        int count = 0;
+        for (int i = 0; i < size;) {
+            if(data[i].equals(value)){
+                for (int j = i; j < size - 1; j++) {
+                    data[j] = data[j + 1];
+                }
+                data[size - 1] = null;
+                size--;
+                count++;
+            } else {
+                i++;
+            }
+        }
+        return count;
+    }
+
 }
 
