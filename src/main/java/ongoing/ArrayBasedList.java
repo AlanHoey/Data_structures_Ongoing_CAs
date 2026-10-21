@@ -43,5 +43,22 @@ public class ArrayBasedList {
         data[size] = value;
         size++;
     }
+
+    public void add(int index, String value){
+
+        System.arraycopy(data,index,data,index+1,(size-index));
+
+        size++;
+        data[index] = value;
+
+    }
+
+    public String set(int index, String value){
+
+        String removed = data[index];
+        data[index] = value;
+
+        return removed;
+    }
 }
 
